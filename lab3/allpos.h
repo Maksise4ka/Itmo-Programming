@@ -27,6 +27,16 @@ void print_slice(char s[500], int left, int right){
     printf("   ");
 }
 
+char* slice_time(char str[500], int left, int right){
+    const int len = right - left;
+    char* result = malloc(len + 2);
+    memset(result, 0, len + 2);
+    for(int i = 0; i <= len; ++i){
+        result[i] = str[i + left];
+    }
+    return result;
+}
+
 void print_log(char s[500], allpos a){
     print_slice(s, a.ids, a.ide);
     print_slice(s, a.times, a.timee);
