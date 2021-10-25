@@ -15,6 +15,10 @@ char10 init10(){
     return num;
 }
 
+void free_char10(char10 x){
+    free(x.n);
+}
+
 char10 add10(char10 x, char10 y){
     char10 result = init10();
     int prev = 0;

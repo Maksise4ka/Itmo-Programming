@@ -10,8 +10,8 @@ def num_generation():
     return ans
 
 def test_generation(f):
-    a = r.randint(10, 2 ** 600)
-    b = r.randint(10, 2 ** 600)
+    a = r.randint(10, 2 ** 200)
+    b = r.randint(10, 2 ** 200)
     a, b = max(a,b), min(a, b)
     arg = 0
     
@@ -22,6 +22,6 @@ def test_generation(f):
         arg = 4
         print(arg, a, b, a + b, a - b, file = f)
 
-with open("input.txt", "w") as f:
+with open("lab2\input.txt", "w") as f:
     for i in range(100):
         test_generation(f)

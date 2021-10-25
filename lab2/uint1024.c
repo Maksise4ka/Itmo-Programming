@@ -24,6 +24,10 @@ uint1024_t init(){
     return num;
 }
 
+void free_uint(uint1024_t x){
+    free(x.n);
+}
+
 void bin_exp(uint1024_t x);
 
 // определяет размер числа
@@ -157,6 +161,8 @@ void printf_value(uint1024_t x){
         degree = add10(degree, degree);
     }
     printf10(result);
+    free_char10(result);
+    free_char10(degree);
 }
 
 void scanf_value(uint1024_t* x){
@@ -171,6 +177,7 @@ void scanf_value(uint1024_t* x){
     }
 
     *x = result;
+    free(s);
 }
 
 // Те же самые принт и скан только в файле.
@@ -188,6 +195,8 @@ void fprintf_value(uint1024_t x, FILE *file){
         degree = add10(degree, degree);
     }
     fprintf10(result, file);
+    free_char10(result);
+    free_char10(degree);
 }
 
 void fscanf_value(uint1024_t* x, FILE *file){
@@ -202,6 +211,7 @@ void fscanf_value(uint1024_t* x, FILE *file){
     }
 
     *x = result;
+    free(s);
 }
 
 
