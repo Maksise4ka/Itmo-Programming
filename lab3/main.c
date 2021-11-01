@@ -35,10 +35,11 @@ int convert_to90(time t){
     return res; // я здесь считаю что в месяце 30 дней и что високосных годов не существует:)
 }
 
+
+int a[1900000];
 int main(){
-    int a[1900];
     FILE *file;
-        file = fopen("access_logmini", "r");
+    file = fopen("access_log_Jul95", "r");
     char str[500];
     int ans1 = 0;
     allpos pos = init();
@@ -65,7 +66,7 @@ int main(){
     int n;
     scanf("%d", &n);
     int ansl = 0, ansr = 0, l = 0, r = 0, ans2 = 0;
-    for(int i = 0; i < 1900; ++i){
+    for(int i = 0; i < 1900000; ++i){
         if (a[i] == 0)
             break;
         if (a[i] - a[l] > n){
