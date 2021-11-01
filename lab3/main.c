@@ -29,12 +29,18 @@ time init_time(char *s){
     return t;
 }
 
+int convert_to90(time t){
+    int month = 7;
+    int res = ((((t.year - 1990) * 365 + month * 30 + t.day) * 24 + t.hour) * 60 + t.min) * 60 + t.sec; 
+    return res; // я здесь считаю что в месяце 30 дней и что високосных годов не существует:)
+}
+
 int main(){
-    //int a[1900000];
+    int a[1900];
     FILE *file;
         file = fopen("access_logmini", "r");
-    int k = 0;
     char str[500];
+    int ans1 = 0;
     allpos pos = init();
     int i = 0;
     while (!feof(file)){
@@ -44,18 +50,39 @@ int main(){
         pos = split(str);
         char status = str[pos.statuss];
         if (status == '5')
-            k++;
+            ans1++;
 
         // 2 вопрос
         char *tmp = slice_time(str, pos.times, pos.timee);
         time t = init_time(tmp); 
         free(tmp);
-        printf("%d %s %d %d %d %d %d\n", t.day, t.month, t.year, t.hour, t.min, t.sec, t.utc);
-
+        a[i] = convert_to90(t);
+        i++;
+        
     }
 
-    //free(a);
-    printf("%d", k); // ответ 76
+    // продолжение второго вопроса
+    int n;
+    scanf("%d", &n);
+    int ansl = 0, ansr = 0, l = 0, r = 0, ans2 = 0;
+    for(int i = 0; i < 1900; ++i){
+        if (a[i] == 0)
+            break;
+        if (a[i] - a[l] > n){
+            int k = i - l;
+            if (k > ans2){
+                ansr = i - 1;
+                ansl = l;
+                ans2 = ansr - ansl + 1;
+            }
+
+        while (a[i] - a[l] > n)
+            l += 1;
+        }
+    }
+
+    printf("quest 1: %d \nquest 2: %d, from %d to %d", ans1, ans2, ansl, ansr);
+    // ответ 76
     fclose(file);
     return 0;
 }
