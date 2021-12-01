@@ -1,3 +1,6 @@
 /.vscode
-/Hello World!
-/WordCount
+*.exe
+/lab4/sample
+/lab4/sample3
+/lab4/sample4
+/lab3/access_log_Jul95
