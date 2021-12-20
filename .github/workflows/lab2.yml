@@ -4,6 +4,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout to branch
+        uses: actions/checkout@v2
       - name: compile files
         run: gcc lab2/uint1024.c lab2/char10.c -o main
       - name: run file
