@@ -1,6 +1,9 @@
 /.vscode
 *.exe
-/lab4/sample
-/lab4/sample3
-/lab4/sample4
+*.mp3
+*.bmp
 /lab3/access_log_Jul95
+*.bin
+*.txt
+*.arc
+*.jpg
