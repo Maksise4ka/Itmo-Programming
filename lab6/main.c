@@ -159,5 +159,3 @@ int main (int argc, char *argv[]) {
     }
     return 0;
 }
-//C:\Users\ASUS\Desktop\роги\Github\Itmo-Programming\lab6
-//main.exe --file test.arc --create ghbf.g a.txt b.bin c.bmp
