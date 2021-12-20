@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: compile files
-        run: gcc lab2\uint1024.c lab2\char10.c -o main
+        run: gcc lab2/uint1024.c lab2/char10.c -o main
       - name: run file
         run: ./main
       - name: Upload a Build Artifact
