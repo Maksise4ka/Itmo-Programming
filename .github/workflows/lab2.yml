@@ -4,16 +4,13 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout to branch
-        uses: actions/checkout@v2
-      - name: cd to catalog
-        run: cd lab2
-      - name: compile files
-        run: gcc uint1024.c char10.c -o main
-      - name: run file
-        run: ./main
+      - name: Compile and run
+        run: |
+           cd lab2
+           gcc uint1024.c char10.c -o main
+           ./main- name: run file
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.3.1
         with:
             name: build
-            path: main
+            path: lab2/main
