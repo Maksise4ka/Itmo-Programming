@@ -1,15 +1,17 @@
 name: Compile lab2
-#on: [push]
+on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - name: checkout to branch
         uses: actions/checkout@v2
+      - name: cd to catalog
+      - run: cd lab2
       - name: compile files
-        run: gcc lab2/uint1024.c lab2/char10.c -o main
-#      - name: run file
-#        run: ./main
+        run: gcc uint1024.c char10.c -o main
+      - name: run file
+        run: ./main
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.3.1
         with:
