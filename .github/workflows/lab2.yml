@@ -7,7 +7,7 @@ jobs:
       - name: checkout to branch
         uses: actions/checkout@v2
       - name: cd to catalog
-      - run: cd lab2
+        run: cd lab2
       - name: compile files
         run: gcc uint1024.c char10.c -o main
       - name: run file
